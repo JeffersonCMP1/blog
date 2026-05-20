@@ -1,23 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react'; // IMPORTAMOS useState PARA USAR ESTADOS
+import Usosestate from './componentes/Usousestate';
+import EjercicioUsostate from './componentes/EjercicioUsostate';
 
-function App() {
+function App() { // COMPONENTE PRINCIPAL
+
+const [mostrarState, setMostrarState] = useState(false);
+const [mostrarEjercicioState, setMostrarEjercicioState] = useState(false);
+
   return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     
+    <div className='componente-usostate'>
+            <button onClick={() => setMostrarState(true)}>
+        Mostrar useState
+      </button>
+      {mostrarState && <Usosestate />}
+
+      <div className='componente-ejercicio-usostate'>
+        <button onClick={()=>setMostrarEjercicioState(true)}>
+          Mostrar Ejercicio de useState
+        </button>
+    {mostrarEjercicioState && <EjercicioUsostate/>}
+      </div>
+    </div>
+
     </div>
   );
 }
